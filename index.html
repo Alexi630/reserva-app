@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESERVA - Encuentra y reserva tu próximo lugar</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">RESERVA</a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="#buscar" class="nav-link">Buscar</a>
+        <a href="#mis-reservas" class="nav-link">Mis reservas</a>
+        <a href="#ayuda" class="nav-link">Ayuda</a>
+        <a href="#login" class="nav-link login-btn">Login</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Encuentra y reserva tu próximo lugar</h1>
+      <p class="hero-subtitle">Reserva de forma rápida, sencilla y segura.</p>
+
+      <!-- Search Bar -->
+      <form class="search-bar" id="searchForm">
+        <div class="search-field">
+          <label for="location">¿Dónde?</label>
+          <input type="text" id="location" name="location" placeholder="Ciudad o distrito" required>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <label for="date">Fecha</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <label for="people">Personas</label>
+          <select id="people" name="people">
+            <option value="1">1 persona</option>
+            <option value="2">2 personas</option>
+            <option value="4" selected>4 personas</option>
+            <option value="6">6 personas</option>
+            <option value="8">8+ personas</option>
+          </select>
+        </div>
+        <button type="submit" class="search-btn">Buscar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Lugares Destacados -->
+  <section class="featured" id="buscar">
+    <div class="container">
+      <h2 class="section-title">Lugares destacados</h2>
+      <div class="cards-grid" id="cardsGrid">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&h=400&fit=crop" alt="Polideportivo Vispe">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Polideportivo Vispe</h3>
+            <p class="card-location">Lima, Perú</p>
+            <p class="card-price">Desde <strong>80 soles</strong></p>
+            <a href="#detalle" class="card-link" data-id="1">Ver más</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1622163642992-caaa1f1f6e1e?w=600&h=400&fit=crop" alt="Cancha la 10">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Cancha la 10</h3>
+            <p class="card-location">Lima, Perú</p>
+            <p class="card-price">Desde <strong>100 soles</strong></p>
+            <a href="#detalle" class="card-link" data-id="2">Ver más</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=400&fit=crop" alt="La caleta Deporcenter">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">La caleta Deporcenter</h3>
+            <p class="card-location">Lima, Perú</p>
+            <p class="card-price">Desde <strong>120 soles</strong></p>
+            <a href="#detalle" class="card-link" data-id="3">Ver más</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&h=400&fit=crop" alt="Campo Deportivo Norte">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Campo Deportivo Norte</h3>
+            <p class="card-location">Lima, Perú</p>
+            <p class="card-price">Desde <strong>90 soles</strong></p>
+            <a href="#detalle" class="card-link" data-id="4">Ver más</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mis Reservas (simple placeholder section) -->
+  <section class="reservas-section" id="mis-reservas">
+    <div class="container">
+      <h2 class="section-title">Mis reservas</h2>
+      <div class="empty-state" id="emptyReservas">
+        <p>Aún no tienes reservas activas.</p>
+        <p class="hint">Busca un lugar y reserva tu cancha fácilmente.</p>
+      </div>
+      <div class="reservas-list" id="reservasList" hidden></div>
+    </div>
+  </section>
+
+  <!-- Ayuda -->
+  <section class="ayuda-section" id="ayuda">
+    <div class="container">
+      <h2 class="section-title">Ayuda</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>¿Cómo reservo una cancha?</h3>
+          <p>Usa el buscador, elige lugar, fecha y número de personas. Luego selecciona el horario disponible y confirma tu reserva.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Puedo cancelar una reserva?</h3>
+          <p>Sí, puedes cancelar hasta 24 horas antes sin costo. Después de ese plazo se aplica una penalidad.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Métodos de pago</h3>
+          <p>Aceptamos Yape, Plin, tarjetas de crédito/débito y efectivo en el local (según el establecimiento).</p>
+        </div>
+        <div class="faq-item">
+          <h3>Contacto</h3>
+          <p>Escríbenos a <a href="mailto:soporte@reserva.pe">soporte@reserva.pe</a> o al WhatsApp +51 999 888 777.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Login -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeLogin">&times;</button>
+      <h2>Iniciar sesión</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" placeholder="tu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-primary">Entrar</button>
+        <p class="form-footer">¿No tienes cuenta? <a href="#" id="showRegister">Regístrate</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Detalle Lugar -->
+  <div class="modal" id="detailModal">
+    <div class="modal-content modal-large">
+      <button class="modal-close" id="closeDetail">&times;</button>
+      <div id="detailContent">
+        <!-- Se llena con JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo">RESERVA</span>
+        <p>Reserva de forma rápida, sencilla y segura.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#ayuda">Ayuda</a>
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+      </div>
+      <p class="copyright">© 2026 RESERVA. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
