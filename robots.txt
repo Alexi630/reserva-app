@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://alexi630.github.io/reserva-app/sitemap.xml
